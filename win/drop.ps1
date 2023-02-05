@@ -71,7 +71,7 @@ switch ($outmode) {
     'dbox' {
         Write-Host "Send output to DropBox drive..."
         $content | Out-File -FilePath "$env:USERPROFILE\dbox_outfile.txt"
-        $destFile = "/dbox_outfile.txt"
+        $destFile = "/$(get-date -f yyyyMMddHHmm)dbox_outfile.txt"
 
         $rargs = '{ "path": "' + $destFile + '", "mode": "add", "autorename": true, "mute": false }'
         $auth = "Bearer " + $token
